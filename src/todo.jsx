@@ -56,7 +56,7 @@ return (
     <hr />
     <ul>
       {todos.map(item => (
-        <li key={item.id} className={item.isDone ? "done" : ""} id="todo-item">
+        <li key={item.id} className={item.isDone ? "done" : "not-done"} >
           {item.title}
           <button className="done-button" type="button" onClick={handleDone} data-id={item.id}>完了</button>
           <button className="remove-button" type="button" onClick={handleRemove} data-id={item.id}>削除</button>
