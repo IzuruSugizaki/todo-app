@@ -50,16 +50,16 @@ const handleRemove = e => {
 return (
   <div>
     <label>
-      やること：<input type="text" name="title" value={title} onChange={handleChangeTitle} />
+      やること：<input type="text" name="title" value={title} className="title-input" onChange={handleChangeTitle} />
     </label>
-    <button type="button" onClick={handleClickAdd}>追加</button>
+    <button type="button" className= "add-button" onClick={handleClickAdd}>追加</button>
     <hr />
     <ul>
       {todos.map(item => (
-        <li key={item.id} className={item.isDone ? "done" : ""}>
+        <li key={item.id} className={item.isDone ? "done" : ""} id="todo-item">
           {item.title}
-          <button type="button" onClick={handleDone} data-id={item.id}>完了</button>
-          <button type="button" onClick={handleRemove} data-id={item.id}>削除</button>
+          <button className="done-button" type="button" onClick={handleDone} data-id={item.id}>完了</button>
+          <button className="remove-button" type="button" onClick={handleRemove} data-id={item.id}>削除</button>
           </li>
       ))}
     </ul>
