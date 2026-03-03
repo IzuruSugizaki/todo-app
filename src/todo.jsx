@@ -15,6 +15,11 @@ const handleChangeTitle = (e) => {
 
 //Todoを追加する関数
 const handleClickAdd = () => {
+  //入力値が空の場合は追加しない
+  if(title === "") {
+    alert("やることを入力してください");
+    return;
+  }
   //新しいTodo項目を追加
   setTodos([
     ...todos,
@@ -27,6 +32,8 @@ const handleClickAdd = () => {
   ]);
   //Todo項目idの最大値を更新
   setMaxId(id => id + 1);
+  //テキストボックスを空にする
+  setTitle("");
 };
 //Todo項目の済み/未済みを切り替える関数
 const handleDone = e => {
@@ -58,7 +65,7 @@ return (
       {todos.map(item => (
         <li key={item.id} className={`todo ${item.isDone ? "done" : ""}`}>
           {item.title}
-          <button className={`todo-button ${item.isDone ? "done-button" : "not-done-button"}`} type="button" onClick={handleDone} data-id={item.id}>完了</button>
+          <button className={`todo-button ${item.isDone ? "done-button" : "not-done-button"}`} type="button" onClick={handleDone} data-id={item.id}>{item.isDone ? "完了" : "未完了"}</button>
           <button className="remove-button" type="button" onClick={handleRemove} data-id={item.id}>削除</button>
           </li>
       ))}
