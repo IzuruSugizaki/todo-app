@@ -1,11 +1,5 @@
 .done {
   text-decoration: line-through;
-  list-style: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  background-color: #f0f0f0;
 }
 
 .add-button {
@@ -18,7 +12,7 @@
   height: 30px;
 }
 
-.not-done {
+.todo {
   list-style: none;
   border: 1px solid black;
   border-radius: 10px;
@@ -28,9 +22,14 @@
 }
 
 .done-button {
+  background-color: lightgreen;
+}
+.not-done-button {
+  background-color: khaki;
+}
+.todo-button {
   display: inline-block;
   margin-left: 10px;
-  background-color: khaki;
 }
 
 .remove-button {
