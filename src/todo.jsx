@@ -39,10 +39,17 @@ const handleClickAdd = () => {
 const handleDone = e => {
   setTodos(todos.map(item => {
     if(item.id === Number(e.target.dataset.id)) {
-      return {
-        ...item,
-        isDone: true
-      };
+      if(item.isDone) {
+        return {
+          ...item,
+          isDone: false,
+        }
+      } else {
+        return {
+          ...item,
+          isDone: true,
+        }
+      }
     } else {
       return item;
     }
