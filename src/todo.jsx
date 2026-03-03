@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./todo.css";
 
 export default function StateTodo() {
 //Todo項目idの最大値を管理するためのstate
@@ -27,6 +28,19 @@ const handleClickAdd = () => {
   //Todo項目idの最大値を更新
   setMaxId(id => id + 1);
 };
+//Todo項目の済み/未済みを切り替える関数
+const handleDone = e => {
+  setTodos(todos.map(item => {
+    if(item.id === Number(e.target.dataset.id)) {
+      return {
+        ...item,
+        isDone: true
+      };
+    } else {
+      return item;
+    }
+  }));
+};
 
 //表示をする
 return (
@@ -38,7 +52,10 @@ return (
     <hr />
     <ul>
       {todos.map(item => (
-        <li key={item.id}>{item.title}</li>
+        <li key={item.id} className={item.isDone ? "done" : ""}>
+          {item.title}
+          <button type="button" onClick={handleDone} data-id={item.id}>完了</button>
+          </li>
       ))}
     </ul>
   </div>
